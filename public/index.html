@@ -8,7 +8,7 @@
   <style>
     .thank-you{
       font-size: 16px;
-      padding: 20px;	
+      padding: 20px;
     }
     #strategy-form{
       padding: 10px;
@@ -44,6 +44,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
 </head>
 <body>
+	<h1>FRC 138 Strategy</h1>
+	<h2>CSV</h2>
+  <a class="btn btn-primary" href="data.csv">Download CSV of data (for excel)</a>
+	<h2>Add new data</h2>
   <form role="form" id="strategy-form">
 <div class="form-group">
   <label>Team number: </label><input class="form-control" name="team_number" data-type="number" type="text" required>
@@ -148,10 +152,10 @@ $(function () {
   }
 
   $("#strategy-form input[data-type=file], #strategy-form input[data-type=image]").on("change",function(){
-    $(this).data("uploadedfiles",[]);    
+    $(this).data("uploadedfiles",[]);
   });
   var apikey = "5c807aadcac6621685acbc2f"; // TODO: INSERT YOUR CORS API KEY HERE OR add formapikey to settings
-  
+
   if (!apikey) alert("Please insert a CORS API key");
 
   var ajaxSettings = {
@@ -194,7 +198,7 @@ $(function () {
         return;
       }else{
         files_to_upload.push(file);
-        totalsize += file.size;        
+        totalsize += file.size;
       }
     });
 
@@ -227,7 +231,7 @@ $(function () {
           var successObj = {};
           successObj[element_name] = result;
           $(item).data("uploaded",result);
-          deferred.resolve(successObj);       
+          deferred.resolve(successObj);
         })
         .fail(function(){
           deferred.reject({field: element_name, error: errorMessages.UPLOADERROR});
@@ -257,7 +261,7 @@ $(function () {
         var theDate = $(this).val();
         if(theDate){
             var isodate_str = new Date(theDate).toISOString();
-            $(this).val(isodate_str);   
+            $(this).val(isodate_str);
         }
     });
 
@@ -277,7 +281,7 @@ $(function () {
             if (timeval.match(regex)){
                 var isodate_str = new Date("1970-01-01T"+$(this).val()+":00Z").toISOString();
                 $(this).val(isodate_str);
-            }   
+            }
         }
     });
 
@@ -299,7 +303,7 @@ $(function () {
     _.each(attachments,function(attachment){
       attachFuncs.push(uploadAttachment(attachment));
     });
-  
+
     // upload all attachments and return with ids when done
     $.when.apply(null,attachFuncs)
       .done(function(){
@@ -309,7 +313,7 @@ $(function () {
           formObj = _.assign(formObj,fieldObj);
         });
 
-       // submit the whole form with attachment ids 
+       // submit the whole form with attachment ids
 
        ajaxSettings.data = JSON.stringify(formObj);
         $.ajax(ajaxSettings)

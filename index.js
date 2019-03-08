@@ -15,7 +15,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
-	.get('/csv.csv', (req, res) => {
+	.get('/data.csv', (req, res) => {
 		console.log("hi")
 		// get our data
 		fetch("https://strategy-e354.restdb.io/rest/strategy", {
