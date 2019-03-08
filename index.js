@@ -4,7 +4,9 @@ const fetch = require('node-fetch')
 const json2csv = require('json2csv')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const apiKey = process.env.APIKEY
+const apiKey = process.env.APIKEY || process.argv[2]
+
+if(!apiKey) throw new Error("No API key!")
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
