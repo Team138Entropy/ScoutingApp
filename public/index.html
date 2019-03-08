@@ -1,185 +1,363 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	<script src="https://strategy-e354.restdb.io/rest/_jsapi.js"></script>
+  <title>restdb.io strategy</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
+  <link href="https://strategy-e354.restdb.io/assets/css/jquery.datetimepicker.min.css" rel="stylesheet">
+  <style>
+    .thank-you{
+      font-size: 16px;
+      padding: 20px;	
+    }
+    #strategy-form{
+      padding: 10px;
+    }
+    #strategy-form input,  #strategy-form select{
+      width: 300px;
+    }
+    label{
+      display: block;
+    }
+    .form-control{
+      width: auto;
+    }
+    .help-block{
+      margin-left:10px;
+    }
+    .progress{
+      width: 300px;
+      height:10px;
+      border-radius:0px;
+      margin-top: 2px;
+    }
+    #btn-submit{
+        width: 300px;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+  <script src="https://strategy-e354.restdb.io/assets/js/jquery-serialize-object.min.js"></script>
+  <script src="https://strategy-e354.restdb.io/assets/js/jquery.datetimepicker.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
 </head>
 <body>
-	<div ng-app = "myApp" ng-controller="myCtrl" ng-init="cargo = 0; hatch = 0; cargo1 = 0; hatch1 = 0; cargo2 = 0; hatch2 = 0; cargo3 = 0; hatch3 = 0; cargo4 = 0; hatch4 = 0; cargo5 = 0; hatch5 = 0; cargo6 = 0; hatch6 = 0; cargo7 = 0; hatch7 = 0"> 
+  <form role="form" id="strategy-form">
+<div class="form-group">
+  <label>Team number: </label><input class="form-control" name="team_number" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Match number: </label><input class="form-control" name="match_number" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Moved off hab: </label><input class="form-control" name="moved_off_hab" data-type="bool" type="checkbox" required>
+</div>
+<div class="form-group">
+  <label>Cargo ship cargo scored: </label><input class="form-control" name="cargo_ship_cargo_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Cargo ship cargo hatch: </label><input class="form-control" name="cargo_ship_cargo_hatch" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Rocket ship lvl1 cargo scored: </label><input class="form-control" name="rocket_ship_lvl1_cargo_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Rocket ship lvl1 hatch scored: </label><input class="form-control" name="rocket_ship_lvl1_hatch_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Rocket ship lvl2 cargo scored: </label><input class="form-control" name="rocket_ship_lvl2_cargo_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Rocket ship lvl2 hatch scored: </label><input class="form-control" name="rocket_ship_lvl2_hatch_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Rocket ship lvl3 cargo scored: </label><input class="form-control" name="rocket_ship_lvl3_cargo_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Rocket ship lvl3 hatch scored: </label><input class="form-control" name="rocket_ship_lvl3_hatch_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Cargo ship hatch scored: </label><input class="form-control" name="cargo_ship_hatch_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Teleop rocket ship lvl1 cargo scored: </label><input class="form-control" name="teleop_rocket_ship_lvl1_cargo_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Teleop rocket ship lvl1 hatch scored: </label><input class="form-control" name="teleop_rocket_ship_lvl1_hatch_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Teleop rocket ship lvl2 cargo scored: </label><input class="form-control" name="teleop_rocket_ship_lvl2_cargo_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Teleop rocket ship lvl2 hatch scored: </label><input class="form-control" name="teleop_rocket_ship_lvl2_hatch_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Teleop rocket ship lvl3 cargo scored: </label><input class="form-control" name="teleop_rocket_ship_lvl3_cargo_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Teleop rocket ship lvl3 hatch scored: </label><input class="form-control" name="teleop_rocket_ship_lvl3_hatch_scored" data-type="number" type="text" required>
+</div>
+<div class="form-group">
+  <label>Final climb level:</label>
+    <select class="form-control"  name="final_climb_level" data-type="option"  required>
+      <option value="no_climb">No_climb</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>  </select>
+</div>
 
-	<h2>Basic Info</h2>
-	<input type="text" name="team#" placeholder="Team #">
-	<input type="text" name="match#" placeholder="Match #">
-	<h2>Sandstorm</h2>
+  <div id="fg-errors" class="form-group">
+  </div>
+  <button class="btn btn-primary btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button></form>
 
-	<u><h3>Move off Hab?</h3></u>
-	<p></p>
-	<input type="radio" ng-model="myVar1" value="Yhab1">Yes
-	<input type="radio" ng-model="myVar1" value="Nhab1">No
-	<u><h3>Cargo ship</h3></u>
+<script>
+$(function () {
 
-	<p></p>
+  // put your own error messages and/or message translation logic here
 
-	Cargo: {{ cargo + 0}}
-	<button ng-click="cargo = cargo - 1"ng-disabled=(cargo===0)> -1</button>
-	<button ng-click="cargo = cargo + 1"> +1</button>
+  var errorMessages = {
+    "REQUIRED": "This field is required",
+    "UNIQUE": "This value already exists",
+    "TYPE": "Invalid data type",
+    "REGEX":"Invalid data format",
+    "number": "Must be an integer number",
+    "money": "Must be a number with max two decimals",
+    "JSON":"Not a valid JSON",
+    "float_number":"Must be a decimal number",
+    "email": "Must be a valid email",
+    "FILESIZE": "Upload exceeds file size limit per field (max 1 MB)",
+    "UPLOADERROR": "Unable to upload file, please try again",
+    "GENERIC_ERROR": "A server error occured, please reload page"
+  }
 
-	<p></p>
+  var successMessage = "Thank you!";
 
-	Hatch: {{ hatch + 0}}
-	<button ng-click="hatch = hatch - 1"ng-disabled=(hatch===0)> -1</button>
-	<button ng-click="hatch = hatch + 1"> +1</button>
+  // enable javascript datetimepicker unless supported
+  // Docs and settings: http://xdsoft.net/jqplugins/datetimepicker/
 
-	<p></p>
+  $.datetimepicker.setLocale('en');
 
-	<u><h3>Rocket</h3></u>
+  // if missing support for datetime, then use jquery.datetimepicker
 
-	<p></p>
+  if (!Modernizr.inputtypes.datetime){
+      $("input[data-type=date]").datetimepicker({timepicker:false,format:"Y/m/d"}).attr("type","text");
+      $("input[data-type=datetime]").datetimepicker({}).attr("type","text");
+      $("input[data-type=time]").datetimepicker({datepicker:false,format:"H:i",value:"12:00"}).attr("type","text");
+  }
 
-	<b>LvL1:</b>
+  $("#strategy-form input[data-type=file], #strategy-form input[data-type=image]").on("change",function(){
+    $(this).data("uploadedfiles",[]);    
+  });
+  var apikey = "5c807aadcac6621685acbc2f"; // TODO: INSERT YOUR CORS API KEY HERE OR add formapikey to settings
+  
+  if (!apikey) alert("Please insert a CORS API key");
 
-	<p></p>
+  var ajaxSettings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://strategy-e354.restdb.io/rest/strategy",
+    "method": "POST",
+    "headers": {
+      "x-apikey": apikey,
+      "content-type": "application/json"
+    },
+    "processData": false
+  }
 
-	Cargo: {{ cargo1 + 0}}
-	<button ng-click="cargo1 = cargo1 - 1"ng-disabled=(cargo1===0)> -1</button>
-	<button ng-click="cargo1 = cargo1 + 1"> +1</button>
+  var ajaxSettingsAttachments = {
+     "async": true,
+     "url": "https://strategy-e354.restdb.io/media",
+     "method": "POST",
+     "contentType": false,
+     "headers": {
+       "x-apikey": apikey
+     },
+     "cache": false,
+     "processData": false
+   }
 
-	<p></p>
 
-	Hatch: {{ hatch1 + 0}}
-	<button ng-click="hatch1 = hatch1 - 1"ng-disabled=(hatch1===0)> -1</button>
-	<button ng-click="hatch1 = hatch1 + 1"> +1</button>
 
-	<p></p>
+  function uploadAttachment(item){
+    var deferred = $.Deferred();
+    var datatype = $(item).attr("data-type");
+    var element_name = $(item).attr("name");
+    var formData = new FormData();
+    var files = $(item)[0].files;
+    var totalsize = 0;
+    var files_to_upload = []
+    _.each(files,function(file){
+      // ignore non-images
+      if(datatype==="image" && !file.type.match('image.*')){
+        return;
+      }else{
+        files_to_upload.push(file);
+        totalsize += file.size;        
+      }
+    });
 
-	<b>LvL2:</b>
+    // check max upload file size for development plan
+    if (totalsize<=1000000){
+      _.each(files_to_upload,function(file){
+        formData.append(element_name, file, file.name);
+      });
+      var asa = _.clone(ajaxSettingsAttachments);
+      asa.xhr = function() {
+        var xhr = new window.XMLHttpRequest();
+        xhr.upload.addEventListener("progress", function(evt) {
+          if (evt.lengthComputable) {
+            var percentComplete = evt.loaded / evt.total;
+            percentComplete = parseInt(percentComplete * 100)+"%";
+            $("#"+element_name+"_progress")
+            .css("width",percentComplete)
+          }
+        }, false);
+        return xhr;
+      }
+      asa.data = formData;
+      var uploadedbefore = $(item).data("uploaded");
+      if (!uploadedbefore){
+        $("#"+element_name+"_progress").parent().removeClass("hidden");
+        $("#btn-submit").button("loading");
+        $.ajax(asa)
+        .success(function(data){
+          var result = data.ids || [];
+          var successObj = {};
+          successObj[element_name] = result;
+          $(item).data("uploaded",result);
+          deferred.resolve(successObj);       
+        })
+        .fail(function(){
+          deferred.reject({field: element_name, error: errorMessages.UPLOADERROR});
+        });
+      }else{
+        var obj = {};
+        obj[element_name]=uploadedbefore;
+        deferred.resolve(obj);
+      }
+    }else{
+      deferred.reject({field: element_name, error: errorMessages.FILESIZE});
+    }
+    return deferred.promise();
+  }
 
-	<p></p>
+  function postForm() {
 
-	Cargo: {{ cargo2 + 0}}
-	<button ng-click="cargo2 = cargo2 - 1"ng-disabled=(cargo2===0)> -1</button>
-	<button ng-click="cargo2 = cargo2 + 1"> +1</button>
+    // clear errors
+    $("#strategy-form .has-error").removeClass("has-error");
+    $("#strategy-form .help-block").remove();
 
-	<p></p>
+    $("#btn-submit").button("loading");
 
-	Hatch: {{ hatch2 + 0}}
-	<button ng-click="hatch2 = hatch2 - 1"ng-disabled=(hatch2===0)> -1</button>
-	<button ng-click="hatch2 = hatch2 + 1"> +1</button>
+  // we need to reformat date, datetime, datetime-local and time to ISO date strings
 
-	<p></p>
+    $("input[data-type=datetime],input[data-type=datetime-local]").each(function(){
+        var theDate = $(this).val();
+        if(theDate){
+            var isodate_str = new Date(theDate).toISOString();
+            $(this).val(isodate_str);   
+        }
+    });
 
-	<b>LvL3:</b>
+    $("input[data-type=date]").each(function(){
+      var theDate = $(this).val();
+      if (theDate){
+          theDate += " GMT";
+          var isodate_str = new Date(theDate).toISOString();
+          $(this).val(isodate_str);
+      }
+    });
 
-	<p></p>
+     $("input[data-type=time]").each(function(){
+        var timeval = $(this).val();
+        if (timeval){
+            var regex = /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/
+            if (timeval.match(regex)){
+                var isodate_str = new Date("1970-01-01T"+$(this).val()+":00Z").toISOString();
+                $(this).val(isodate_str);
+            }   
+        }
+    });
 
-	Cargo: {{ cargo3 + 0}}
-	<button ng-click="cargo3 = cargo3 - 1"ng-disabled=(cargo3===0)> -1</button>
-	<button ng-click="cargo3 = cargo3 + 1"> +1</button>
 
-	<p></p>
+ // get the form data
+    var formObj = $("#strategy-form").serializeObject();
 
-	Hatch: {{ hatch3 + 0}}
-	<button ng-click="hatch3 = hatch3 - 1"ng-disabled=(hatch3===0)> -1</button>
-	<button ng-click="hatch3 = hatch3 + 1"> +1</button>
+    // get attachments from inputs
+    var attachments = [];
 
-	<h2>Tele-op</h2>
+    $("#strategy-form input[data-type=file], #strategy-form input[data-type=image]").each(function(input){
+      var files = $(this)[0].files;
+      if(files && files.length>0){
+        attachments.push($(this));
+      }
+    });
 
-	<u><h3>Defenceive Robot?</h3></u>
-	<p></p>
-	<input type="radio" ng-model="myVar2" value="Yhab2">Yes
-	<input type="radio" ng-model="myVar2" value="Nhab2">No
+    var attachFuncs = [];
+    _.each(attachments,function(attachment){
+      attachFuncs.push(uploadAttachment(attachment));
+    });
+  
+    // upload all attachments and return with ids when done
+    $.when.apply(null,attachFuncs)
+      .done(function(){
+        // get the attachment id's from arguments and store into form obj
 
-	<u><h3>Cargo ship</h3></u>
+        _.each(arguments,function(fieldObj){
+          formObj = _.assign(formObj,fieldObj);
+        });
 
-	<p></p>
+       // submit the whole form with attachment ids 
 
-	Cargo: {{ cargo4 + 0}}
-	<button ng-click="cargo4 = cargo4 - 1"ng-disabled=(cargo4===0)> -1</button>
-	<button ng-click="cargo4 = cargo4 + 1"> +1</button>
+       ajaxSettings.data = JSON.stringify(formObj);
+        $.ajax(ajaxSettings)
+        .done(function (response) {
+          // replaces form with a thank you message, please replace with your own functionality
+          $("#strategy-form").replaceWith("<div class='thank-you'>"+successMessage+"</div>");
+        })
+        .fail(function (response) {
+          $("#btn-submit").button("reset");
+          var error = response.responseJSON;
+          if (error && error.name==="ValidationError"){
+            _.each(error.list,function(fielderr){
+              var inputSelector = "[name="+fielderr.field+"]";
+              var errorMessageCode = fielderr.message[1];
+              var errorMessage = errorMessages[errorMessageCode] || "Invalid value";
+              if (errorMessageCode==="TYPE"){
+                var fieldType = $(inputSelector).data("type");
+                errorMessage = errorMessages[fieldType] || "Invalid value";
+              }
+              $(inputSelector).after("<div class='help-block'>"+errorMessage+"</div>");
+              $(inputSelector).parents(".form-group").addClass("has-error");
+            });
+          }
+          else{
+            var msg = (ajaxSettings.headers["x-apikey"] && ajaxSettings.headers["x-apikey"].length < 24) ? "Missing API-key": "Server Error";
+            alert(msg);
+          }
+        });
+      })
+      .fail( function (response) {
+        $("#btn-submit").button("reset");
+        if (response.field && response.error){
+          var inputSelector = "[name="+response.field+"]";
+          $(inputSelector).after("<div class='help-block'>"+response.error+"</div>");
+          $(inputSelector).parents(".form-group").addClass("has-error");
+        }else{
+          var errorMessage = errorMessages.GENERIC_ERROR || "Problem submitting form";
+          $("#fg-errors").addClass("has-error")
+          .append("<div class='help-block'>"+errorMessage+"</div>");
+        }
+      });
+  };
 
-	<p></p>
-
-	Hatch: {{ hatch4 + 0}}
-	<button ng-click="hatch4 = hatch4 - 1"ng-disabled=(hatch4===0)> -1</button>
-	<button ng-click="hatch4 = hatch4 + 1"> +1</button>
-
-	<p></p>
-
-	<u><h3>Rocket</h3></u>
-
-	<p></p>
-
-	<b>LvL1:</b>
-
-	<p></p>
-
-	Cargo: {{ cargo5 + 0}}
-	<button ng-click="cargo5 = cargo5 - 1"ng-disabled=(cargo5===0)> -1</button>
-	<button ng-click="cargo5 = cargo5 + 1"> +1</button>
-
-	<p></p>
-
-	Hatch: {{ hatch5 + 0}}
-	<button ng-click="hatch5 = hatch5 - 1"ng-disabled=(hatch5===0)> -1</button>
-	<button ng-click="hatch5 = hatch5 + 1"> +1</button>
-
-	<p></p>
-
-	<b>LvL2:</b>
-
-	<p></p>
-
-	Cargo: {{ cargo6 + 0}}
-	<button ng-click="cargo6 = cargo6 - 1"ng-disabled=(cargo6===0)> -1</button>
-	<button ng-click="cargo6 = cargo6 + 1"> +1</button>
-
-	<p></p>
-
-	Hatch: {{ hatch6 + 0}}
-	<button ng-click="hatch6 = hatch6 - 1"ng-disabled=(hatch6===0)> -1</button>
-	<button ng-click="hatch6 = hatch6 + 1"> +1</button>
-
-	<p></p>
-
-	<u><b>LvL3:</b></u>
-
-	<p></p>
-
-	Cargo: {{ cargo7 + 0}}
-	<button ng-click="cargo7 = cargo7 - 1"ng-disabled=(cargo7===0)> -1</button>
-	<button ng-click="cargo7 = cargo7 + 1"> +1</button>
-
-	<p></p>
-
-	Hatch: {{ hatch7 + 0}}
-	<button ng-click="hatch7 = hatch7 - 1"ng-disabled=(hatch7===0)> -1</button>
-	<button ng-click="hatch7 = hatch7 + 1"> +1</button>
-
-	<h2>End Game</h2>
-
-	<p></p>
-	Climb
-	<select>
-	<option ng-repeat="x in names">{{x}}</option>
-	</select>
-
-	</div>
-
-	<script>
-	var app = angular.module('myApp', []);
-	app.controller('myCtrl', function($scope) {
-		$scope.names = ["No Climb", "Level 1", "Level 2", "Level 3"];
-	});
-	</script>
-	<p></p>
-	<button onclick="myFunction()"> <h3>Submit</h3></button>
-	<script>
-	function myFunction() {
-	  location.reload();
-	}
-	</script>
-	</div>
-
-	</body>
+  $("#strategy-form").submit(function (event) {
+        postForm();
+        event.preventDefault();
+        return false;
+    });
+});
+</script>  </body>
 </html>

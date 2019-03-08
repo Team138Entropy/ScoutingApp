@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://strategy-e354.restdb.io/rest/_jsapi.js"></script>
+</head>
+<body>
+	<div ng-app = "myApp" ng-controller="myCtrl" ng-init="cargo = 0; hatch = 0; cargo1 = 0; hatch1 = 0; cargo2 = 0; hatch2 = 0; cargo3 = 0; hatch3 = 0; cargo4 = 0; hatch4 = 0; cargo5 = 0; hatch5 = 0; cargo6 = 0; hatch6 = 0; cargo7 = 0; hatch7 = 0"> 
+
+	<h2>Basic Info</h2>
+	<input type="text" name="team#" placeholder="Team #">
+	<input type="text" name="match#" placeholder="Match #">
+	<h2>Sandstorm</h2>
+
+	<u><h3>Move off Hab?</h3></u>
+	<p></p>
+	<input type="radio" ng-model="myVar1" value="Yhab1">Yes
+	<input type="radio" ng-model="myVar1" value="Nhab1">No
+	<u><h3>Cargo ship</h3></u>
+
+	<p></p>
+
+	Cargo: {{ cargo + 0}}
+	<button ng-click="cargo = cargo - 1"ng-disabled=(cargo===0)> -1</button>
+	<button ng-click="cargo = cargo + 1"> +1</button>
+
+	<p></p>
+
+	Hatch: {{ hatch + 0}}
+	<button ng-click="hatch = hatch - 1"ng-disabled=(hatch===0)> -1</button>
+	<button ng-click="hatch = hatch + 1"> +1</button>
+
+	<p></p>
+
+	<u><h3>Rocket</h3></u>
+
+	<p></p>
+
+	<b>LvL1:</b>
+
+	<p></p>
+
+	Cargo: {{ cargo1 + 0}}
+	<button ng-click="cargo1 = cargo1 - 1"ng-disabled=(cargo1===0)> -1</button>
+	<button ng-click="cargo1 = cargo1 + 1"> +1</button>
+
+	<p></p>
+
+	Hatch: {{ hatch1 + 0}}
+	<button ng-click="hatch1 = hatch1 - 1"ng-disabled=(hatch1===0)> -1</button>
+	<button ng-click="hatch1 = hatch1 + 1"> +1</button>
+
+	<p></p>
+
+	<b>LvL2:</b>
+
+	<p></p>
+
+	Cargo: {{ cargo2 + 0}}
+	<button ng-click="cargo2 = cargo2 - 1"ng-disabled=(cargo2===0)> -1</button>
+	<button ng-click="cargo2 = cargo2 + 1"> +1</button>
+
+	<p></p>
+
+	Hatch: {{ hatch2 + 0}}
+	<button ng-click="hatch2 = hatch2 - 1"ng-disabled=(hatch2===0)> -1</button>
+	<button ng-click="hatch2 = hatch2 + 1"> +1</button>
+
+	<p></p>
+
+	<b>LvL3:</b>
+
+	<p></p>
+
+	Cargo: {{ cargo3 + 0}}
+	<button ng-click="cargo3 = cargo3 - 1"ng-disabled=(cargo3===0)> -1</button>
+	<button ng-click="cargo3 = cargo3 + 1"> +1</button>
+
+	<p></p>
+
+	Hatch: {{ hatch3 + 0}}
+	<button ng-click="hatch3 = hatch3 - 1"ng-disabled=(hatch3===0)> -1</button>
+	<button ng-click="hatch3 = hatch3 + 1"> +1</button>
+
+	<h2>Tele-op</h2>
+
+	<u><h3>Defenceive Robot?</h3></u>
+	<p></p>
+	<input type="radio" ng-model="myVar2" value="Yhab2">Yes
+	<input type="radio" ng-model="myVar2" value="Nhab2">No
+
+	<u><h3>Cargo ship</h3></u>
+
+	<p></p>
+
+	Cargo: {{ cargo4 + 0}}
+	<button ng-click="cargo4 = cargo4 - 1"ng-disabled=(cargo4===0)> -1</button>
+	<button ng-click="cargo4 = cargo4 + 1"> +1</button>
+
+	<p></p>
+
+	Hatch: {{ hatch4 + 0}}
+	<button ng-click="hatch4 = hatch4 - 1"ng-disabled=(hatch4===0)> -1</button>
+	<button ng-click="hatch4 = hatch4 + 1"> +1</button>
+
+	<p></p>
+
+	<u><h3>Rocket</h3></u>
+
+	<p></p>
+
+	<b>LvL1:</b>
+
+	<p></p>
+
+	Cargo: {{ cargo5 + 0}}
+	<button ng-click="cargo5 = cargo5 - 1"ng-disabled=(cargo5===0)> -1</button>
+	<button ng-click="cargo5 = cargo5 + 1"> +1</button>
+
+	<p></p>
+
+	Hatch: {{ hatch5 + 0}}
+	<button ng-click="hatch5 = hatch5 - 1"ng-disabled=(hatch5===0)> -1</button>
+	<button ng-click="hatch5 = hatch5 + 1"> +1</button>
+
+	<p></p>
+
+	<b>LvL2:</b>
+
+	<p></p>
+
+	Cargo: {{ cargo6 + 0}}
+	<button ng-click="cargo6 = cargo6 - 1"ng-disabled=(cargo6===0)> -1</button>
+	<button ng-click="cargo6 = cargo6 + 1"> +1</button>
+
+	<p></p>
+
+	Hatch: {{ hatch6 + 0}}
+	<button ng-click="hatch6 = hatch6 - 1"ng-disabled=(hatch6===0)> -1</button>
+	<button ng-click="hatch6 = hatch6 + 1"> +1</button>
+
+	<p></p>
+
+	<u><b>LvL3:</b></u>
+
+	<p></p>
+
+	Cargo: {{ cargo7 + 0}}
+	<button ng-click="cargo7 = cargo7 - 1"ng-disabled=(cargo7===0)> -1</button>
+	<button ng-click="cargo7 = cargo7 + 1"> +1</button>
+
+	<p></p>
+
+	Hatch: {{ hatch7 + 0}}
+	<button ng-click="hatch7 = hatch7 - 1"ng-disabled=(hatch7===0)> -1</button>
+	<button ng-click="hatch7 = hatch7 + 1"> +1</button>
+
+	<h2>End Game</h2>
+
+	<p></p>
+	Climb
+	<select>
+	<option ng-repeat="x in names">{{x}}</option>
+	</select>
+
+	</div>
+
+	<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope) {
+		$scope.names = ["No Climb", "Level 1", "Level 2", "Level 3"];
+	});
+	</script>
+	<p></p>
+	<button onclick="myFunction()"> <h3>Submit</h3></button>
+	<script>
+	function myFunction() {
+	  location.reload();
+	}
+	</script>
+	</div>
+
+	</body>
+</html>
