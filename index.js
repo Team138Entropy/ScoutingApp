@@ -32,7 +32,7 @@ express()
 		// make it csv
 		then(data => {
 			res.setHeader('Content-Type', 'text/csv')
-			res.write(json2csv.parse(data))
+			if(data.length)	res.write(json2csv.parse(data))
 			res.end()
 		}).
 		catch(resp => {
