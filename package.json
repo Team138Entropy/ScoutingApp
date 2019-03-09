@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scripts": {
-      "start": "node index.js"
-    }
+    "start": "node index.js",
+    "watch": "npx nodemon -e js,json,html,css -w ** -i node_modules --exec heroku local"
   },
   "repository": {
     "type": "git",
