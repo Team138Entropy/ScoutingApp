@@ -63,7 +63,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
 </head>
 <body>
-	<h1>FRC 138 Strategy</h1>
+	<h1>FRC 138 Strategy </h1>
 	<h2>CSV</h2>
   <a class="btn btn-primary btn-lg" id="csv" href="data.csv">Download CSV of data (for excel)</a>
 	<h2>Add new data</h2>
@@ -129,8 +129,8 @@
 </div>
 <div class="form-group">
   <label>Teleop rocket ship lvl1 hatch scored: </label><input ng-model="teleop_rocket_ship_lvl1_hatch_scored" class="form-control num-button" name="teleop_rocket_ship_lvl1_hatch_scored" data-type="number" type="number" required>
-  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl1_cargo_scored = teleop_rocket_ship_lvl1_cargo_scored - 1" ng-disabled=(teleop_rocket_ship_lvl1_cargo_scored===0)> -1</button>
-	<button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl1_cargo_scored = teleop_rocket_ship_lvl1_cargo_scored + 1"> +1</button>
+  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl1_hatch_scored = teleop_rocket_ship_lvl1_hatch_scored - 1" ng-disabled=(teleop_rocket_ship_lvl1_hatch_scored===0)> -1</button>
+	<button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl1_hatch_scored = teleop_rocket_ship_lvl1_hatch_scored + 1"> +1</button>
 </div>
 <div class="form-group">
   <label>Teleop rocket ship lvl2 cargo scored: </label><input ng-model="teleop_rocket_ship_lvl2_cargo_scored" class="form-control num-button" name="teleop_rocket_ship_lvl2_cargo_scored" data-type="number" type="number" required>
