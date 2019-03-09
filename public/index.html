@@ -385,6 +385,7 @@ $(function () {
        // submit the whole form with attachment ids
 
        ajaxSettings.data = JSON.stringify(formObj);
+       console.log(ajaxSettings.data);
         $.ajax(ajaxSettings)
         .done(function (response) {
           // replaces form with a thank you message, please replace with your own functionality
