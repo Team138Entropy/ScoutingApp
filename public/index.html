@@ -271,6 +271,8 @@ $(function () {
     if (totalsize<=1000000){
       _.each(files_to_upload,function(file){
         formData.append(element_name, file, file.name);
+        console.log("totalsize <= 10000000");
+        console.log(formData);
       });
       var asa = _.clone(ajaxSettingsAttachments);
       asa.xhr = function() {
@@ -286,6 +288,8 @@ $(function () {
         return xhr;
       }
       asa.data = formData;
+      console.log("checking asa.data");
+        console.log(asa);
       var uploadedbefore = $(item).data("uploaded");
       if (!uploadedbefore){
         $("#"+element_name+"_progress").parent().removeClass("hidden");
