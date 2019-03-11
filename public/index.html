@@ -67,7 +67,8 @@
 	<h2>CSV</h2>
   <a class="btn btn-primary btn-lg" id="csv" href="data.csv">Download CSV of data (for excel)</a>
 	<h2>Add new data</h2>
-  <form role="form" id="strategy-form" ng-app = "myApp" ng-controller="myCtrl" ng-init="cargo_ship_cargo_scored = 0; cargo_ship_cargo_hatch = 0; rocket_ship_lvl1_cargo_scored = 0; rocket_ship_lvl1_hatch_scored = 0; rocket_ship_lvl2_cargo_scored = 0; rocket_ship_lvl2_hatch_scored = 0; rocket_ship_lvl3_cargo_scored = 0; rocket_ship_lvl3_hatch_scored = 0; cargo_ship_hatch_scored = 0; Tcargo_ship_cargo_scored = 0; teleop_rocket_ship_lvl1_cargo_scored = 0; teleop_rocket_ship_lvl1_hatch_scored = 0; teleop_rocket_ship_lvl2_cargo_scored = 0; teleop_rocket_ship_lvl2_hatch_scored = 0; teleop_rocket_ship_lvl3_cargo_scored = 0; teleop_rocket_ship_lvl3_hatch_scored = 0;">
+	<div id="thank-you" hidden class="alert alert-success">Thanks!</div>
+  <form id="strategy-form" ng-app = "myApp" ng-controller="myCtrl" ng-init="cargo_ship_cargo_scored = 0; rocket_ship_lvl1_cargo_scored = 0; rocket_ship_lvl1_hatch_scored = 0; rocket_ship_lvl2_cargo_scored = 0; rocket_ship_lvl2_hatch_scored = 0; rocket_ship_lvl3_cargo_scored = 0; rocket_ship_lvl3_hatch_scored = 0; cargo_ship_hatch_scored = 0; teleop_rocket_ship_lvl1_cargo_scored = 0; teleop_rocket_ship_lvl1_hatch_scored = 0; teleop_rocket_ship_lvl2_cargo_scored = 0; teleop_rocket_ship_lvl2_hatch_scored = 0; teleop_rocket_ship_lvl3_cargo_scored = 0; teleop_rocket_ship_lvl3_hatch_scored = 0; teleop_cargo_ship_cargo_scored = 0; teleop_cargo_ship_hatch_scored = 0;">
 <div class="form-group">
   <label>Team number:</label><input class="form-control" name="team_number" data-type="number" type="number" required>
 </div>
@@ -80,93 +81,87 @@
 <u><h1>Sandstorm</h1></u>
  <h2>Cargo Ship</h2>
 <div class="form-group">
-  <label>cargo scored: </label><input ng-model="cargo_ship_cargo_scored" class="form-control num-button" name="cargo_ship_cargo_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="cargo_ship_cargo_scored = cargo_ship_cargo_scored - 1" ng-disabled=(cargo_ship_cargo_scored===0)> -1</button>
+  <label>Cargo ship cargo scored: </label><input ng-model="cargo_ship_cargo_scored" class="form-control num-button" name="cargo_ship_cargo_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="cargo_ship_cargo_scored = cargo_ship_cargo_scored - 1" ng-disabled="(cargo_ship_cargo_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="cargo_ship_cargo_scored = cargo_ship_cargo_scored + 1"> +1</button>
 </div>
 <div class="form-group">
-  <label>hatch scored: </label><input ng-model="cargo_ship_cargo_hatch" class="form-control num-button" name="cargo_ship_cargo_hatch" data-type="number" type="number">
-  <button type="button" class="btn btn-primary" ng-click="cargo_ship_cargo_hatch = cargo_ship_cargo_hatch - 1" ng-disabled=(cargo_ship_cargo_hatch===0)> -1</button>
-	<button type="button" class="btn btn-primary" ng-click="cargo_ship_cargo_hatch = cargo_ship_cargo_hatch + 1"> +1</button>
-</div>
-<h2>Rocket</h2>
-<div class="form-group">
-  <u><h>Level 1</h></u>
-  <label>cargo scored: </label><input ng-model="rocket_ship_lvl1_cargo_scored" class="form-control num-button" name="rocket_ship_lvl1_cargo_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl1_cargo_scored = rocket_ship_lvl1_cargo_scored - 1" ng-disabled=(rocket_ship_lvl1_cargo_scored===0)> -1</button>
+  <label>Rocket ship lvl1 cargo scored: </label><input ng-model="rocket_ship_lvl1_cargo_scored" class="form-control num-button" name="rocket_ship_lvl1_cargo_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl1_cargo_scored = rocket_ship_lvl1_cargo_scored - 1" ng-disabled="(rocket_ship_lvl1_cargo_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl1_cargo_scored = rocket_ship_lvl1_cargo_scored + 1"> +1</button>
 </div>
 <div class="form-group">
-  <label>hatch scored: </label><input ng-model="rocket_ship_lvl1_hatch_scored" class="form-control num-button" name="rocket_ship_lvl1_hatch_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl1_hatch_scored = rocket_ship_lvl1_hatch_scored - 1" ng-disabled=(rocket_ship_lvl1_hatch_scored===0)> -1</button>
+  <label>Rocket ship lvl1 hatch scored: </label><input ng-model="rocket_ship_lvl1_hatch_scored" class="form-control num-button" name="rocket_ship_lvl1_hatch_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl1_hatch_scored = rocket_ship_lvl1_hatch_scored - 1" ng-disabled="(rocket_ship_lvl1_hatch_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl1_hatch_scored = rocket_ship_lvl1_hatch_scored + 1"> +1</button>
 </div>
 <div class="form-group">
-  <u><h>Level 2</h></u>
-  <label>cargo scored: </label><input ng-model="rocket_ship_lvl2_cargo_scored" class="form-control num-button" name="rocket_ship_lvl2_cargo_scored" data-type="number" type="number">
-  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl2_cargo_scored = rocket_ship_lvl2_cargo_scored - 1" ng-disabled=(rocket_ship_lvl2_cargo_scored===0)> -1</button>
+  <label>Rocket ship lvl2 cargo scored: </label><input ng-model="rocket_ship_lvl2_cargo_scored" class="form-control num-button" name="rocket_ship_lvl2_cargo_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl2_cargo_scored = rocket_ship_lvl2_cargo_scored - 1" ng-disabled="(rocket_ship_lvl2_cargo_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl2_cargo_scored = rocket_ship_lvl2_cargo_scored + 1"> +1</button>
 </div>
 <div class="form-group">
-  <label>hatch scored: </label><input ng-model="rocket_ship_lvl2_hatch_scored" class="form-control num-button" name="rocket_ship_lvl2_hatch_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl2_hatch_scored = rocket_ship_lvl2_hatch_scored - 1" ng-disabled=(rocket_ship_lvl2_hatch_scored===0)> -1</button>
+  <label>Rocket ship lvl2 hatch scored: </label><input ng-model="rocket_ship_lvl2_hatch_scored" class="form-control num-button" name="rocket_ship_lvl2_hatch_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl2_hatch_scored = rocket_ship_lvl2_hatch_scored - 1" ng-disabled="(rocket_ship_lvl2_hatch_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl2_hatch_scored = rocket_ship_lvl2_hatch_scored + 1"> +1</button>
 </div>
 <div class="form-group">
-  <u><h>Level 3</h></u>
-  <label>cargo scored: </label><input ng-model="rocket_ship_lvl3_cargo_scored" class="form-control num-button" name="rocket_ship_lvl3_cargo_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl3_cargo_scored = rocket_ship_lvl3_cargo_scored - 1" ng-disabled=(rocket_ship_lvl3_cargo_scored===0)> -1</button>
+  <label>Rocket ship lvl3 cargo scored: </label><input ng-model="rocket_ship_lvl3_cargo_scored" class="form-control num-button" name="rocket_ship_lvl3_cargo_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl3_cargo_scored = rocket_ship_lvl3_cargo_scored - 1" ng-disabled="(rocket_ship_lvl3_cargo_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl3_cargo_scored = rocket_ship_lvl3_cargo_scored + 1"> +1</button>
 </div>
 <div class="form-group">
-  <label>hatch scored: </label><input ng-model="rocket_ship_lvl3_hatch_scored" class="form-control num-button" name="rocket_ship_lvl3_hatch_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl3_hatch_scored = rocket_ship_lvl3_hatch_scored - 1" ng-disabled=(rocket_ship_lvl3_hatch_scored===0)> -1</button>
+  <label>Rocket ship lvl3 hatch scored: </label><input ng-model="rocket_ship_lvl3_hatch_scored" class="form-control num-button" name="rocket_ship_lvl3_hatch_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl3_hatch_scored = rocket_ship_lvl3_hatch_scored - 1" ng-disabled="(rocket_ship_lvl3_hatch_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="rocket_ship_lvl3_hatch_scored = rocket_ship_lvl3_hatch_scored + 1"> +1</button>
 </div>
 <u><h1>Tele op</h1></u>
 <h2>Cargo ship</h2>
 <div class="form-group">
-    <label>cargo scored: </label><input ng-model="Tcargo_ship_cargo_scored" class="form-control num-button" name="Tcargo_ship_cargo_scored" data-type="number" type="number" >
-    <button type="button" class="btn btn-primary" ng-click="Tcargo_ship_cargo_scored = Tcargo_ship_cargo_scored - 1" ng-disabled=(Tcargo_ship_cargo_scored===0)> -1</button>
-    <button type="button" class="btn btn-primary" ng-click="Tcargo_ship_cargo_scored = Tcargo_ship_cargo_scored + 1"> +1</button>
-  </div>
-  <label>hatch scored: </label><input ng-model="cargo_ship_hatch_scored" class="form-control num-button" name="cargo_ship_hatch_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="cargo_ship_hatch_scored = cargo_ship_hatch_scored - 1" ng-disabled=(cargo_ship_hatch_scored===0)> -1</button>
+  <label>Cargo ship hatch scored: </label><input ng-model="cargo_ship_hatch_scored" class="form-control num-button" name="cargo_ship_hatch_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="cargo_ship_hatch_scored = cargo_ship_hatch_scored - 1" ng-disabled="(cargo_ship_hatch_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="cargo_ship_hatch_scored = cargo_ship_hatch_scored + 1"> +1</button>
 </div>
 <h2>Rocket</h2>
 <div class="form-group">
-  <u><h>Level 1</h></u>
-  <label>cargo scored: </label><input ng-model="teleop_rocket_ship_lvl1_cargo_scored" class="form-control num-button" name="teleop_rocket_ship_lvl1_cargo_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl1_cargo_scored = teleop_rocket_ship_lvl1_cargo_scored - 1" ng-disabled=(teleop_rocket_ship_lvl1_cargo_scored===0)> -1</button>
+  <label>Teleop rocket ship lvl1 cargo scored: </label><input ng-model="teleop_rocket_ship_lvl1_cargo_scored" class="form-control num-button" name="teleop_rocket_ship_lvl1_cargo_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl1_cargo_scored = teleop_rocket_ship_lvl1_cargo_scored - 1" ng-disabled="(teleop_rocket_ship_lvl1_cargo_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl1_cargo_scored = teleop_rocket_ship_lvl1_cargo_scored + 1"> +1</button>
 </div>
 <div class="form-group">
-  <label>hatch scored: </label><input ng-model="teleop_rocket_ship_lvl1_hatch_scored" class="form-control num-button" name="teleop_rocket_ship_lvl1_hatch_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl1_hatch_scored = teleop_rocket_ship_lvl1_hatch_scored - 1" ng-disabled=(teleop_rocket_ship_lvl1_hatch_scored===0)> -1</button>
+  <label>Teleop rocket ship lvl1 hatch scored: </label><input ng-model="teleop_rocket_ship_lvl1_hatch_scored" class="form-control num-button" name="teleop_rocket_ship_lvl1_hatch_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl1_hatch_scored = teleop_rocket_ship_lvl1_hatch_scored - 1" ng-disabled="(teleop_rocket_ship_lvl1_hatch_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl1_hatch_scored = teleop_rocket_ship_lvl1_hatch_scored + 1"> +1</button>
 </div>
 <div class="form-group">
-  <u><h>Level 2</h></u>
-  <label>cargo scored: </label><input ng-model="teleop_rocket_ship_lvl2_cargo_scored" class="form-control num-button" name="teleop_rocket_ship_lvl2_cargo_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl2_cargo_scored = teleop_rocket_ship_lvl2_cargo_scored - 1" ng-disabled=(teleop_rocket_ship_lvl2_cargo_scored===0)> -1</button>
+  <label>Teleop rocket ship lvl2 cargo scored: </label><input ng-model="teleop_rocket_ship_lvl2_cargo_scored" class="form-control num-button" name="teleop_rocket_ship_lvl2_cargo_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl2_cargo_scored = teleop_rocket_ship_lvl2_cargo_scored - 1" ng-disabled="(teleop_rocket_ship_lvl2_cargo_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl2_cargo_scored = teleop_rocket_ship_lvl2_cargo_scored + 1"> +1</button>
 </div>
 <div class="form-group">
-  <label>hatch scored: </label><input ng-model="teleop_rocket_ship_lvl2_hatch_scored" class="form-control num-button" name="teleop_rocket_ship_lvl2_hatch_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl2_hatch_scored = teleop_rocket_ship_lvl2_hatch_scored - 1" ng-disabled=(teleop_rocket_ship_lvl2_hatch_scored===0)> -1</button>
+  <label>Teleop rocket ship lvl2 hatch scored: </label><input ng-model="teleop_rocket_ship_lvl2_hatch_scored" class="form-control num-button" name="teleop_rocket_ship_lvl2_hatch_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl2_hatch_scored = teleop_rocket_ship_lvl2_hatch_scored - 1" ng-disabled="(teleop_rocket_ship_lvl2_hatch_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl2_hatch_scored = teleop_rocket_ship_lvl2_hatch_scored + 1"> +1</button>
 </div>
 <div class="form-group">
-  <u><h>Level 3</h></u>
-  <label>cargo scored: </label><input ng-model="teleop_rocket_ship_lvl3_cargo_scored" class="form-control num-button" name="teleop_rocket_ship_lvl3_cargo_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl3_cargo_scored = teleop_rocket_ship_lvl3_cargo_scored - 1" ng-disabled=(teleop_rocket_ship_lvl3_cargo_scored===0)> -1</button>
+  <label>Teleop rocket ship lvl3 cargo scored: </label><input ng-model="teleop_rocket_ship_lvl3_cargo_scored" class="form-control num-button" name="teleop_rocket_ship_lvl3_cargo_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl3_cargo_scored = teleop_rocket_ship_lvl3_cargo_scored - 1" ng-disabled="(teleop_rocket_ship_lvl3_cargo_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl3_cargo_scored = teleop_rocket_ship_lvl3_cargo_scored + 1"> +1</button>
 </div>
 <div class="form-group">
-  <label>hatch scored: </label><input ng-model="teleop_rocket_ship_lvl3_hatch_scored" class="form-control num-button" name="teleop_rocket_ship_lvl3_hatch_scored" data-type="number" type="number" >
-  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl3_hatch_scored = teleop_rocket_ship_lvl3_hatch_scored - 1" ng-disabled=(teleop_rocket_ship_lvl3_hatch_scored===0)> -1</button>
+  <label>Teleop rocket ship lvl3 hatch scored: </label><input ng-model="teleop_rocket_ship_lvl3_hatch_scored" class="form-control num-button" name="teleop_rocket_ship_lvl3_hatch_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl3_hatch_scored = teleop_rocket_ship_lvl3_hatch_scored - 1" ng-disabled="(teleop_rocket_ship_lvl3_hatch_scored===0)"> -1</button>
 	<button type="button" class="btn btn-primary" ng-click="teleop_rocket_ship_lvl3_hatch_scored = teleop_rocket_ship_lvl3_hatch_scored + 1"> +1</button>
+</div>
+<div class="form-group">
+  <label>Teleop cargo ship cargo scored: </label><input ng-model="teleop_cargo_ship_cargo_scored" class="form-control num-button" name="teleop_cargo_ship_cargo_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="teleop_cargo_ship_cargo_scored = teleop_cargo_ship_cargo_scored - 1" ng-disabled="(teleop_cargo_ship_cargo_scored===0)"> -1</button>
+	<button type="button" class="btn btn-primary" ng-click="teleop_cargo_ship_cargo_scored = teleop_cargo_ship_cargo_scored + 1"> +1</button>
+</div>
+<div class="form-group">
+  <label>Teleop cargo ship hatch scored: </label><input ng-model="teleop_cargo_ship_hatch_scored" class="form-control num-button" name="teleop_cargo_ship_hatch_scored" data-type="number" type="number" required>
+  <button type="button" class="btn btn-primary" ng-click="teleop_cargo_ship_hatch_scored = teleop_cargo_ship_hatch_scored - 1" ng-disabled="(teleop_cargo_ship_hatch_scored===0)"> -1</button>
+	<button type="button" class="btn btn-primary" ng-click="teleop_cargo_ship_hatch_scored = teleop_cargo_ship_hatch_scored + 1"> +1</button>
 </div>
 <div class="form-group">
   <label>Final climb level:</label>
@@ -183,6 +178,11 @@
 
 <script>
 $(function () {
+	const form2json = form => Array.from(form.querySelectorAll("input,select")).reduce((obj, elem) => {
+		if(elem.getAttribute("data-type") === "bool") obj[elem.name] = elem.checked;
+		else obj[elem.name] = elem.value;
+		return obj;
+	}, {})
 
   // put your own error messages and/or message translation logic here
 
@@ -200,8 +200,6 @@ $(function () {
     "UPLOADERROR": "Unable to upload file, please try again",
     "GENERIC_ERROR": "A server error occured, please reload page"
   }
-
-  var successMessage = "Thank you!";
 
   // enable javascript datetimepicker unless supported
   // Docs and settings: http://xdsoft.net/jqplugins/datetimepicker/
@@ -356,7 +354,7 @@ $(function () {
 
 
  // get the form data
-    var formObj = $("#strategy-form").serializeObject();
+    var formObj = form2json($("#strategy-form")[0]);
 
     // get attachments from inputs
     var attachments = [];
@@ -389,7 +387,11 @@ $(function () {
         $.ajax(ajaxSettings)
         .done(function (response) {
           // replaces form with a thank you message, please replace with your own functionality
-          $("#strategy-form").replaceWith("<div class='thank-you'>"+successMessage+"</div>");
+          $("#thank-you").removeAttr("hidden");
+          $("#btn-submit").button("reset");
+					$("html, body").animate({
+              scrollTop: $("#thank-you").offset().top
+          }, 500);
         })
         .fail(function (response) {
           $("#btn-submit").button("reset");
