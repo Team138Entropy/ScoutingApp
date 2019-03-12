@@ -1,0 +1,57 @@
+.thank-you{
+    font-size: 16px;
+    padding: 20px;
+}
+#strategy-form input,  #strategy-form select{
+    width: 300px; 
+}
+label{
+    display: block;
+}
+.form-control{
+    width: auto;
+}
+.help-block{
+    margin-left:10px;
+}
+.progress{
+    width: 300px;
+    height:10px;
+    border-radius:0px;
+    margin-top: 2px;
+}
+.btn-lg{
+    width: 300px;
+}
+.form-group [hidden]{
+    display: none;
+}
+.num-button{
+    width: 7ch !important;
+    display: inline-block;
+    text-align: center;
+}
+body{
+    margin: 10px;
+}
+h1{
+    text-decoration: underline;
+}
+#strategy-form h3{
+    font-size: 2em;
+}
+form div{
+    margin-left: 1em;
+}
+form > *{
+    /* margin-left: 0; */
+}
+#strategy-form > div > input, #strategy-form > div > select{
+    width: 20ch;
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+h2{
+    font-size: 2.2rem;
+}
