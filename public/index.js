@@ -136,7 +136,7 @@ $(function () {
     }
     
     function postForm() {
-      
+      $("#timestamp").val((new Date).toUTCString())
       // clear errors
       $("#strategy-form .has-error").removeClass("has-error");
       $("#strategy-form .help-block").remove();
@@ -210,6 +210,7 @@ $(function () {
           // replaces form with a thank you message, please replace with your own functionality
           $("#thank-you").removeAttr("hidden");
           $("#btn-submit").button("reset");
+          $("#strategy-form")[0].reset();
           $("html, body").animate({
             scrollTop: $("#thank-you").offset().top
           }, 500);
