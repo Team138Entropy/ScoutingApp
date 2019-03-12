@@ -23,7 +23,7 @@
     <h2>CSV Download</h2>
     <a class="btn btn-success btn-lg" id="csv" href="data.csv">Download CSV of data (for excel)</a>
 
-    <form id="strategy-form" ng-app = "myApp" ng-controller="myCtrl" ng-init="cargo_ship_cargo_scored = 0; rocket_ship_lvl1_cargo_scored = 0; rocket_ship_lvl1_hatch_scored = 0; rocket_ship_lvl2_cargo_scored = 0; rocket_ship_lvl2_hatch_scored = 0; rocket_ship_lvl3_cargo_scored = 0; rocket_ship_lvl3_hatch_scored = 0; cargo_ship_hatch_scored = 0; teleop_rocket_ship_lvl1_cargo_scored = 0; teleop_rocket_ship_lvl1_hatch_scored = 0; teleop_rocket_ship_lvl2_cargo_scored = 0; teleop_rocket_ship_lvl2_hatch_scored = 0; teleop_rocket_ship_lvl3_cargo_scored = 0; teleop_rocket_ship_lvl3_hatch_scored = 0; teleop_cargo_ship_cargo_scored = 0; teleop_cargo_ship_hatch_scored = 0;">
+    <form id="strategy-form" ng-app = "myApp" ng-controller="myCtrl" ng-init="cargo_ship_cargo_scored = 0; rocket_ship_lvl1_cargo_scored = 0; rocket_ship_lvl1_hatch_scored = 0; rocket_ship_lvl2_cargo_scored = 0; rocket_ship_lvl2_hatch_scored = 0; rocket_ship_lvl3_cargo_scored = 0; rocket_ship_lvl3_hatch_scored = 0; cargo_ship_hatch_scored = 0; teleop_rocket_ship_lvl1_cargo_scored = 0; teleop_rocket_ship_lvl1_hatch_scored = 0; teleop_rocket_ship_lvl2_cargo_scored = 0; teleop_rocket_ship_lvl2_hatch_scored = 0; teleop_rocket_ship_lvl3_cargo_scored = 0; teleop_rocket_ship_lvl3_hatch_scored = 0; teleop_cargo_ship_cargo_scored = 0; teleop_cargo_ship_hatch_scored = 0; was_defensive = 0;">
       <h2>Add new data</h2>
 
       <div id="thank-you" hidden class="alert alert-success">Thanks!</div>
@@ -153,6 +153,13 @@
           <option value="3">3</option>
         </select>
       </div>
+      <div class="form-group">
+        <label>Played defence: </label><input class="form-control" name="was_defensive" data-type="bool" type="checkbox">
+      </div>
+      <div class="form-group">
+        <label>Notes: </label><input class="form-control" name="notes" data-type="text" type="text">
+      </div>
+      
       <div id="fg-errors" class="form-group">
       </div>
       <button class="btn btn-success btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting..."><h3>Submit</h3></button>
