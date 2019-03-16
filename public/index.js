@@ -4,9 +4,9 @@ $(function () {
       else obj[elem.name] = elem.value;
       return obj;
     }, {})
-    
+
     // put your own error messages and/or message translation logic here
-    
+
     var errorMessages = {
       "REQUIRED": "This field is required",
       "UNIQUE": "This value already exists",
@@ -21,27 +21,27 @@ $(function () {
       "UPLOADERROR": "Unable to upload file, please try again",
       "GENERIC_ERROR": "A server error occured, please reload page"
     }
-    
+
     // enable javascript datetimepicker unless supported
     // Docs and settings: http://xdsoft.net/jqplugins/datetimepicker/
-    
+
     $.datetimepicker.setLocale('en');
-    
+
     // if missing support for datetime, then use jquery.datetimepicker
-    
+
     if (!Modernizr.inputtypes.datetime){
       $("input[data-type=date]").datetimepicker({timepicker:false,format:"Y/m/d"}).attr("type","text");
       $("input[data-type=datetime]").datetimepicker({}).attr("type","text");
       $("input[data-type=time]").datetimepicker({datepicker:false,format:"H:i",value:"12:00"}).attr("type","text");
     }
-    
+
     $("#strategy-form input[data-type=file], #strategy-form input[data-type=image]").on("change",function(){
       $(this).data("uploadedfiles",[]);
     });
     var apikey = "5c807aadcac6621685acbc2f"; // TODO: INSERT YOUR CORS API KEY HERE OR add formapikey to settings
-    
+
     if (!apikey) alert("Please insert a CORS API key");
-    
+
     var ajaxSettings = {
       "async": true,
       "crossDomain": true,
@@ -53,7 +53,7 @@ $(function () {
       },
       "processData": false
     }
-    
+
     var ajaxSettingsAttachments = {
       "async": true,
       "url": "https://strategy-e354.restdb.io/media",
@@ -65,9 +65,9 @@ $(function () {
       "cache": false,
       "processData": false
     }
-    
-    
-    
+
+
+
     function uploadAttachment(item){
       var deferred = $.Deferred();
       var datatype = $(item).attr("data-type");
@@ -85,7 +85,7 @@ $(function () {
           totalsize += file.size;
         }
       });
-      
+
       // check max upload file size for development plan
       if (totalsize<=1000000){
         _.each(files_to_upload,function(file){
@@ -134,17 +134,17 @@ $(function () {
       }
       return deferred.promise();
     }
-    
+
     function postForm() {
       $("#timestamp").val((new Date).toUTCString())
       // clear errors
       $("#strategy-form .has-error").removeClass("has-error");
       $("#strategy-form .help-block").remove();
-      
+
       $("#btn-submit").button("loading");
-      
+
       // we need to reformat date, datetime, datetime-local and time to ISO date strings
-      
+
       $("input[data-type=datetime],input[data-type=datetime-local]").each(function(){
         var theDate = $(this).val();
         if(theDate){
@@ -152,7 +152,7 @@ $(function () {
           $(this).val(isodate_str);
         }
       });
-      
+
       $("input[data-type=date]").each(function(){
         var theDate = $(this).val();
         if (theDate){
@@ -161,7 +161,7 @@ $(function () {
           $(this).val(isodate_str);
         }
       });
-      
+
       $("input[data-type=time]").each(function(){
         var timeval = $(this).val();
         if (timeval){
@@ -172,43 +172,44 @@ $(function () {
           }
         }
       });
-      
-      
+
+
       // get the form data
       var formObj = form2json($("#strategy-form")[0]);
-      
+
       // get attachments from inputs
       var attachments = [];
-      
+
       $("#strategy-form input[data-type=file], #strategy-form input[data-type=image]").each(function(input){
         var files = $(this)[0].files;
         if(files && files.length>0){
           attachments.push($(this));
         }
       });
-      
+
       var attachFuncs = [];
       _.each(attachments,function(attachment){
         attachFuncs.push(uploadAttachment(attachment));
       });
-      
+
       // upload all attachments and return with ids when done
       $.when.apply(null,attachFuncs)
       .done(function(){
         // get the attachment id's from arguments and store into form obj
-        
+
         _.each(arguments,function(fieldObj){
           formObj = _.assign(formObj,fieldObj);
         });
-        
+
         // submit the whole form with attachment ids
-        
+
         ajaxSettings.data = JSON.stringify(formObj);
         console.log(ajaxSettings.data);
         $.ajax(ajaxSettings)
         .done(function (response) {
           // replaces form with a thank you message, please replace with your own functionality
           $("#thank-you").removeAttr("hidden");
+					setTimeout(() => $("#thank-you").attr("hidden", true), 2000);
           $("#btn-submit").button("reset");
           $("#strategy-form")[0].reset();
           $("html, body").animate({
@@ -250,7 +251,7 @@ $(function () {
         }
       });
     };
-    
+
     $("#strategy-form").submit(function (event) {
       postForm();
       event.preventDefault();
