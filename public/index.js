@@ -208,13 +208,14 @@ $(function () {
         $.ajax(ajaxSettings)
         .done(function (response) {
           // replaces form with a thank you message, please replace with your own functionality
-          $("#thank-you").removeAttr("hidden");
-					setTimeout(() => $("#thank-you").attr("hidden", true), 2000);
-          $("#btn-submit").button("reset");
-          $("#strategy-form")[0].reset();
-          $("html, body").animate({
-            scrollTop: $("#thank-you").offset().top
-          }, 500);
+          // $("#thank-you").removeAttr("hidden");
+					// setTimeout(() => $("#thank-you").attr("hidden", true), 2000);
+          // $("#btn-submit").button("reset");
+          // $("#strategy-form")[0].reset();
+          // $("html, body").animate({
+          //   scrollTop: $("#thank-you").offset().top
+          // }, 500);
+					location.reload();
         })
         .fail(function (response) {
           $("#btn-submit").button("reset");
