@@ -15,7 +15,6 @@
     <script src="https://strategy-e354.restdb.io/assets/js/jquery-serialize-object.min.js"></script>
     <script src="https://strategy-e354.restdb.io/assets/js/jquery.datetimepicker.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
-<!--comment your code like once reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee--> 
     <link href="/index.css" rel="stylesheet">
   </head>
   <body>
@@ -25,9 +24,13 @@
     <h2>CSV Download</h2>
     <a class="btn btn-success btn-lg" id="csv" href="data.csv">Download CSV of data (for excel)</a>
 
+    <!-- Here we have our nice form. -->
     <form id="strategy-form" ng-app = "myApp" ng-controller="myCtrl" ng-init="cargo_ship_cargo_scored = 0; rocket_ship_lvl1_cargo_scored = 0; rocket_ship_lvl1_hatch_scored = 0; rocket_ship_lvl2_cargo_scored = 0; rocket_ship_lvl2_hatch_scored = 0; rocket_ship_lvl3_cargo_scored = 0; rocket_ship_lvl3_hatch_scored = 0; cargo_ship_hatch_scored = 0; teleop_rocket_ship_lvl1_cargo_scored = 0; teleop_rocket_ship_lvl1_hatch_scored = 0; teleop_rocket_ship_lvl2_cargo_scored = 0; teleop_rocket_ship_lvl2_hatch_scored = 0; teleop_rocket_ship_lvl3_cargo_scored = 0; teleop_rocket_ship_lvl3_hatch_scored = 0; teleop_cargo_ship_cargo_scored = 0; teleop_cargo_ship_hatch_scored = 0; was_defensive = 0;">
+      <!-- Success banner. -->
       <div id="thank-you" hidden class="alert alert-success">Thanks!</div>
+
       <h2>Add New Data</h2>
+      <!-- Fields at the top -->
       <div class="form-group">
         <label>Team Number:</label><input class="form-control" name="team_number" data-type="number" type="number" required>
       </div>
@@ -42,9 +45,10 @@
           <h3 class="btn btn-block btn-primary">Sandstorm</h3>
         </summary>
         <div>
-          <h4><u><b>CLOSE AFTER FIRST 15 SECONDS OF MATCH</b></u></h4>
-          <!--HENRY WAS HERE-->
+          <h4>CLOSE AFTER FIRST 15 SECONDS OF MATCH</h4>
+          <!-- The sandstorm stuff -->
           <h4>Cargo Ship</h4>
+          <!-- ng values change based on -1 and +1 -->
           <div class="form-group">
             <label>Cargo Scored: </label><input ng-model="cargo_ship_cargo_scored" class="form-control num-button" name="cargo_ship_cargo_scored" data-type="number" type="number" required>
             <button type="button" class="btn btn-primary" ng-click="cargo_ship_cargo_scored = cargo_ship_cargo_scored - 1" ng-disabled="(cargo_ship_cargo_scored===0)"> -1</button>
@@ -98,6 +102,7 @@
           <h3 class="btn btn-block btn-primary">Teleop</h3>
         </summary>
         <div>
+          <!-- Teleop stuff -->
           <h4>Cargo Ship</h4>
           <div class="form-group">
             <label>Cargo Scored: </label><input ng-model="teleop_cargo_ship_cargo_scored" class="form-control num-button" name="teleop_cargo_ship_cargo_scored" data-type="number" type="number" required>
@@ -147,6 +152,7 @@
           </div>
         </div>
       </details>
+      <!-- Final values -->
       <div class="form-group">
         <label>Final Climb Level:</label>
         <select class="form-control"  name="final_climb_level" data-type="option" >
@@ -155,7 +161,7 @@
           <option value="2">2</option>
           <option value="3">3</option>
         </select>
-        <label>Aid climb:</label>
+        <label>Aided climb:</label>
         <select class="form-control"  name="aided_climb" data-type="option" >
           <option value="no_aid">No_aid</option>
           <option value="helped">helped_robot_up</option>

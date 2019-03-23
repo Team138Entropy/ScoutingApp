@@ -211,11 +211,11 @@ $(function () {
           // $("#thank-you").removeAttr("hidden");
 					// setTimeout(() => $("#thank-you").attr("hidden", true), 2000);
           // $("#btn-submit").button("reset");
-          // $("#strategy-form")[0].reset();
+          $("#strategy-form")[0].reset();
           // $("html, body").animate({
           //   scrollTop: $("#thank-you").offset().top
           // }, 500);
-					location.reload();
+					setTimeout(() => location.reload(), 250);
         })
         .fail(function (response) {
           $("#btn-submit").button("reset");
