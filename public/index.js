@@ -231,7 +231,7 @@ $(function () {
               }
               $(inputSelector).after("<div class='help-block'>"+errorMessage+"</div>");
               $(inputSelector).parents(".form-group").addClass("has-error");
-            });
+            });``
           }
           else{
             var msg = (ajaxSettings.headers["x-apikey"] && ajaxSettings.headers["x-apikey"].length < 24) ? "Missing API-key": "Server Error";
