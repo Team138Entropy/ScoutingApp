@@ -27,9 +27,9 @@
     <!-- Here we have our nice form. -->
     <form id="strategy-form" ng-app = "myApp" ng-controller="myCtrl" ng-init="cargo_ship_cargo_scored = 0; rocket_ship_lvl1_cargo_scored = 0; rocket_ship_lvl1_hatch_scored = 0; rocket_ship_lvl2_cargo_scored = 0; rocket_ship_lvl2_hatch_scored = 0; rocket_ship_lvl3_cargo_scored = 0; rocket_ship_lvl3_hatch_scored = 0; cargo_ship_hatch_scored = 0; teleop_rocket_ship_lvl1_cargo_scored = 0; teleop_rocket_ship_lvl1_hatch_scored = 0; teleop_rocket_ship_lvl2_cargo_scored = 0; teleop_rocket_ship_lvl2_hatch_scored = 0; teleop_rocket_ship_lvl3_cargo_scored = 0; teleop_rocket_ship_lvl3_hatch_scored = 0; teleop_cargo_ship_cargo_scored = 0; teleop_cargo_ship_hatch_scored = 0; was_defensive = 0;">
       <!-- Success banner. -->
-      <div id="thank-you" hidden class="alert alert-success">Thanks!</div>
+      <div id="thank-you" hidden class="alert alert-success">Thanks!  Your help is appreciated! -Strategy</div>
 
-      <h2>Add New Data</h2>
+      <h2>Add New Data:</h2>
       <!-- Fields at the top -->
       <div class="form-group">
         <label>Team Number:</label><input class="form-control" name="team_number" data-type="number" type="number" required>
@@ -45,7 +45,8 @@
           <h3 class="btn btn-block btn-primary">Sandstorm</h3>
         </summary>
         <div>
-          <h4>CLOSE AFTER FIRST 15 SECONDS OF MATCH</h4>
+          <!--lol max is gonna reee-->
+          <h4><u>CLOSE AFTER FIRST 15 SECONDS OF MATCH</u></h4>
           <!-- The sandstorm stuff -->
           <h4>Cargo Ship</h4>
           <!-- ng values change based on -1 and +1 -->
