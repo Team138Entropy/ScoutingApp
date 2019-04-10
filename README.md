@@ -28,7 +28,7 @@ Run this command: `heroku local`
 ### Deploying your code
 Run this command: `git push heroku master` and then this: `git push`
 
-## Useful utorials
+## Useful tuorials
 - https://devcenter.heroku.com/articles/heroku-cli
 - https://www.tutorialspoint.com/nodejs/
 - https://restdb.io/docs/
