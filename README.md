@@ -20,10 +20,17 @@ We use [RestDB](https://restdb.io) and sign in with the team138entropy@gmail.com
 ### Getting started
 1. Clone the repo.
 2. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
-3. Run this magical account: `heroku git:remote -a scout138`
+3. Run this magical command: `heroku git:remote -a scout138`
 
 ### Trying your code
 Run this command: `heroku local`
 
 ### Deploying your code
 Run this command: `git push heroku master` and then this: `git push`
+
+## Useful tutorials
+- https://devcenter.heroku.com/articles/heroku-cli
+- https://www.tutorialspoint.com/nodejs/
+- https://devcenter.heroku.com/articles/heroku-cli
+- https://restdb.io/docs/
+- http://rogerdudler.github.io/git-guide/
