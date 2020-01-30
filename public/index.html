@@ -47,7 +47,7 @@
         </summary>
         <div>
           <h4>CLOSE AFTER FIRST 15 SECONDS OF MATCH</h4>
-          <!-- The sandstorm stuff -->
+          <!-- The Auto stuff -->
           <h4>Power Port</h4>
           <!-- ng values change based on -1 and +1 -->
           <div class="form-group">
@@ -93,10 +93,10 @@
         <div class="form-group">
           <label>Control Panel:</label>
           <select class="form-control"  name="Control_Panel" data-type="option" >
+            <option value="Nether">Nether</option>
             <option value="Rotation">Rotation</option>
             <option value="Color Pick">Color Pick</option>
             <option value="Both">Both</option>
-            <option value="Nether">Nether</option>
           </select>
           </div>
       </details>
@@ -104,16 +104,11 @@
       <div class="form-group">
         <label>Final Climb Level:</label>
         <select class="form-control"  name="final_climb_level" data-type="option" >
-          <option value="no_climb">No_climb</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
+          <option value="no_climb">No Climb</option>
+          <option value="Climbed">Climbed</option>
+          <option value="Aided Climb">Aided Climb</option>
         </select>
-        <label>Aided climb:</label>
-        <select class="form-control"  name="aided_climb" data-type="option" >
-          <option value="no_aid">No_aid</option>
-          <option value="helped">helped_robot_up</option>
-          <option value="was_helped">was_helped_up</option>
+        <label>Aid Climb (Helped an <b>other robot></b> climb): </label><input class="form-control" name="Aided_climb" data-type="bool" type="checkbox">
         </select>
         </div>
       <div class="form-group">
