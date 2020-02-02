@@ -51,19 +51,19 @@
           <h4>Power Port</h4>
           <!-- ng values change based on -1 and +1 -->
           <div class="form-group">
-            <label>Inner Port: </label><input ng-model="inner_port_scored_auto" class="form-control num-button" name="inner_port_scored_auto" data-type="number" type="number">
+            <label>Inner Port: </label><input ng-model="auto_InnerPort" class="form-control num-button" name="inner_port_scored_auto" data-type="number" type="number">
             <button type="button" class="btn btn-primary" ng-click="inner_port_scored_auto = inner_port_scored_auto - 1" ng-disabled="(inner_port_scored_auto===0)"> -1</button>
             <button type="button" class="btn btn-primary" ng-click="inner_port_scored_auto = inner_port_scored_auto + 1"> +1</button>
           </div>
           <div class="form-group">
-            <label>Outer Port: </label><input ng-model="outer_port_scored_auto" class="form-control num-button" name="outer_port_scored_auto" data-type="number" type="number">
-            <button type="button" class="btn btn-primary" ng-click="outer_port_scored_auto = outer_port_scored_auto - 1" ng-disabled="(outer_port_scored_auto===0)"> -1</button>
-            <button type="button" class="btn btn-primary" ng-click="outer_port_scored_auto = outer_port_scored_auto + 1"> +1</button>
+            <label>Outer Port: </label><input ng-model="auto_UpperPort" class="form-control num-button" name="auto_UpperPort" data-type="number" type="number">
+            <button type="button" class="btn btn-primary" ng-click="auto_UpperPort = auto_UpperPort - 1" ng-disabled="(auto_UpperPort===0)"> -1</button>
+            <button type="button" class="btn btn-primary" ng-click="auto_UpperPort = auto_UpperPort + 1"> +1</button>
           </div>
           <div class="form-group">
-            <label>Lower Port: </label><input ng-model="bottom_port_scored_auto" class="form-control num-button" name="bottom_port_scored_auto" data-type="number" type="number">
-            <button type="button" class="btn btn-primary" ng-click="bottom_port_scored_auto = bottom_port_scored_auto - 1" ng-disabled="(bottom_port_scored_auto===0)"> -1</button>
-            <button type="button" class="btn btn-primary" ng-click="bottom_port_scored_auto = bottom_port_scored_auto + 1"> +1</button>
+            <label>Lower Port: </label><input ng-model="auto_LowerPort" class="form-control num-button" name="auto_LowerPort" data-type="number" type="number">
+            <button type="button" class="btn btn-primary" ng-click="auto_LowerPort = auto_LowerPort - 1" ng-disabled="(auto_LowerPort===0)"> -1</button>
+            <button type="button" class="btn btn-primary" ng-click="auto_LowerPort = auto_LowerPort + 1"> +1</button>
           </div>
         </div>
       </details>
@@ -76,19 +76,19 @@
         <h4>Power Port</h4>
         <!-- ng values change based on -1 and +1 -->
         <div class="form-group">
-          <label>Inner Port: </label><input ng-model="inner_port_scored_teleop" class="form-control num-button" name="inner_port_scored_teleop" data-type="number" type="number">
-          <button type="button" class="btn btn-primary" ng-click="inner_port_scored_teleop = inner_port_scored_teleop - 1" ng-disabled="(inner_port_scored_teleop===0)"> -1</button>
-          <button type="button" class="btn btn-primary" ng-click="inner_port_scored_teleop = inner_port_scored_teleop + 1"> +1</button>
+          <label>Inner Port: </label><input ng-model="teleop_InnerPort" class="form-control num-button" name="teleop_InnerPort" data-type="number" type="number">
+          <button type="button" class="btn btn-primary" ng-click="teleop_InnerPort = teleop_InnerPort - 1" ng-disabled="(teleop_InnerPort===0)"> -1</button>
+          <button type="button" class="btn btn-primary" ng-click="teleop_InnerPort = teleop_InnerPort + 1"> +1</button>
         </div>
         <div class="form-group">
-          <label>Outer Port: </label><input ng-model="outer_port_scored_teleop" class="form-control num-button" name="outer_port_scored_teleop" data-type="number" type="number">
-          <button type="button" class="btn btn-primary" ng-click="outer_port_scored_teleop = outer_port_scored_teleop - 1" ng-disabled="(outer_port_scored_teleop===0)"> -1</button>
-          <button type="button" class="btn btn-primary" ng-click="outer_port_scored_teleop = outer_port_scored_teleop + 1"> +1</button>
+          <label>Outer Port: </label><input ng-model="teleop_UpperPort" class="form-control num-button" name="teleop_UpperPort" data-type="number" type="number">
+          <button type="button" class="btn btn-primary" ng-click="teleop_UpperPort = teleop_UpperPort - 1" ng-disabled="(teleop_UpperPort===0)"> -1</button>
+          <button type="button" class="btn btn-primary" ng-click="teleop_UpperPort = teleop_UpperPort + 1"> +1</button>
         </div>
         <div class="form-group">
-          <label>Lower Port: </label><input ng-model="bottom_port_scored_teleop" class="form-control num-button" name="bottom_port_scored_teleop" data-type="number" type="number">
-          <button type="button" class="btn btn-primary" ng-click="bottom_port_scored_teleop = bottom_port_scored_teleop - 1" ng-disabled="(bottom_port_scored_teleop===0)"> -1</button>
-          <button type="button" class="btn btn-primary" ng-click="bottom_port_scored_teleop = bottom_port_scored_teleop + 1"> +1</button>
+          <label>Lower Port: </label><input ng-model="teleop_LowerPort" class="form-control num-button" name="teleop_LowerPort" data-type="number" type="number">
+          <button type="button" class="btn btn-primary" ng-click="teleop_LowerPort = teleop_LowerPort - 1" ng-disabled="(teleop_LowerPort===0)"> -1</button>
+          <button type="button" class="btn btn-primary" ng-click="teleop_LowerPort = teleop_LowerPort + 1"> +1</button>
         </div>
         <div class="form-group">
           <label>Control Panel:</label>
