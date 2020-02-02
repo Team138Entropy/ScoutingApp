@@ -52,8 +52,8 @@
           <!-- ng values change based on -1 and +1 -->
           <div class="form-group">
             <label>Inner Port: </label><input ng-model="auto_InnerPort" class="form-control num-button" name="inner_port_scored_auto" data-type="number" type="number">
-            <button type="button" class="btn btn-primary" ng-click="inner_port_scored_auto = inner_port_scored_auto - 1" ng-disabled="(inner_port_scored_auto===0)"> -1</button>
-            <button type="button" class="btn btn-primary" ng-click="inner_port_scored_auto = inner_port_scored_auto + 1"> +1</button>
+            <button type="button" class="btn btn-primary" ng-click="auto_InnerPort = auto_InnerPort - 1" ng-disabled="(auto_InnerPort===0)"> -1</button>
+            <button type="button" class="btn btn-primary" ng-click="auto_InnerPort = auto_InnerPort + 1"> +1</button>
           </div>
           <div class="form-group">
             <label>Outer Port: </label><input ng-model="auto_UpperPort" class="form-control num-button" name="auto_UpperPort" data-type="number" type="number">
