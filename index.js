@@ -1,4 +1,6 @@
-const cool = require('cool-ascii-faces')
+//TODO change thingy and go to data
+const cool = require('thingy.py')
+const data = require('json2csv')
 const express = require('express')
 const fetch = require('node-fetch')
 const json2csv = require('json2csv')
@@ -14,6 +16,7 @@ express()
   //.set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/cool', (req, res) => res.send(cool()))
+  .get('/data', (req, res) => res.send(data()))
   .get('/times', (req, res) => res.send(showTimes()))
 	.get('/data.csv', (req, res) => {
 		console.log("hi")
