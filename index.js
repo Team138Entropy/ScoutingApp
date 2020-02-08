@@ -1,4 +1,5 @@
-//TODO change thingy and go to data
+import thingy.py
+
 const cool = require('cool-ascii-faces')
 const data = require('thingy.py')
 const express = require('express')
