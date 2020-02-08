@@ -1,7 +1,6 @@
-import thingy
-
+const thingy = spawn("python.exe", ["thingy.py"]);
 const cool = require('cool-ascii-faces')
-const data = require('thingy.py')
+const data = require('thingy')
 const express = require('express')
 const fetch = require('node-fetch')
 const json2csv = require('json2csv')
