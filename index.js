@@ -1,6 +1,6 @@
 //TODO change thingy and go to data
-const cool = require('thingy.py')
-const data = require('json2csv')
+const cool = require('cool-ascii-faces')
+const data = require('cool-ascii-faces')
 const express = require('express')
 const fetch = require('node-fetch')
 const json2csv = require('json2csv')
