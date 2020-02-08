@@ -14,7 +14,7 @@ express()
   //.set('views', path.join(__dirname, 'views'))
   //.set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-  .get('/data', (req, res)=> res.send(data)))
+  .get('/data', (req, res)=> res.send(data())))
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
 	.get('/data.csv', (req, res) => {
