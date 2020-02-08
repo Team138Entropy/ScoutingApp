@@ -1,5 +1,5 @@
-const data = require('thingy').spawn;
-const scriptExecution = data(python.exe, ["thingy.py"]);
+//const data = require('thingy').spawn;
+//const scriptExecution = data(python.exe, ["thingy.py"]);
 const cool = require('cool-ascii-faces')
 //const data = require('thingy')
 const express = require('express')
