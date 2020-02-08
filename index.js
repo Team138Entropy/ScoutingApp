@@ -1,4 +1,4 @@
-import thingy.py
+import thingy
 
 const cool = require('cool-ascii-faces')
 const data = require('thingy.py')
