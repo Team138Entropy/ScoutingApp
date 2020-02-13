@@ -1,5 +1,6 @@
 from flask import Flask
 import requests
+#import json
 
 app = Flask(__name__)
 
@@ -10,10 +11,10 @@ headers = {
     'cache-control': "no-cache"
     }
 
-
 @app.route("/data")
 def data():
     response = requests.request("GET", url, headers=headers)
+
     return response.text
 if __name__ == "__main__":
     app.run()
