@@ -1,3 +1,4 @@
+import json
 from flask import Flask
 import requests
 #import json
@@ -5,6 +6,7 @@ import requests
 team_arr = []
 
 app = Flask(__name__)
+app.config['TESTING'] = True
 
 url = "https://strategy-e354.restdb.io/rest/strategy"
 headers = {
@@ -16,9 +18,12 @@ headers = {
 @app.route("/data")
 def data():
     response = requests.request("GET", url, headers=headers)
-    for row in response.text:
-        team_tuple = (row["team_number"])
+    for match in json.loads(response.text):
+        # team_num = int("team_number")
+        team_num = "team_number"
+        team_tuple = match[team_num]
+        print("get me out of here")
         team_arr.append(team_tuple)
-    return team_arr
+    return json.dumps(team_arr)
 if __name__ == "__main__":
     app.run()
