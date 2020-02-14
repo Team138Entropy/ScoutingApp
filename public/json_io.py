@@ -1,9 +1,7 @@
 import json
 from flask import Flask
 import requests
-#import json
 
-team_arr = []
 
 app = Flask(__name__)
 app.config['TESTING'] = True
@@ -17,12 +15,11 @@ headers = {
 
 @app.route("/data")
 def data():
+    team_arr = []
     response = requests.request("GET", url, headers=headers)
     for match in json.loads(response.text):
-        # team_num = int("team_number")
         team_num = "team_number"
         team_tuple = match[team_num]
-        print("get me out of here")
         team_arr.append(team_tuple)
     return json.dumps(team_arr)
 if __name__ == "__main__":
