@@ -97,23 +97,7 @@ def teamJazz():
     if team_str in mainDict:
         sub_arr = ()
         sub_arr = (mainDict[team_str])
-        print(sub_arr)
-        #for i in sub_arr:
-            #if (contT>contF):
-                #scont = True
-                #contT += 1
-                #convertingVariables()
-                #sauto = auto_cells
-                #stele = tele_cells
-                #scont = control_panel
-                #smove = moved
-                #sdefe = defensive_bool
-                #sflag = flags
-                #sclimb = climb
-                #saide = aided_climb
-            #elif (contF>contT):
-                #scont = False
-                #contF += 1
+        #print(sub_arr)
         convertingVariables()
         sauto = (sub_arr[0]+auto_cells)/2
         stele = (sub_arr[1]+tele_cells)/2
@@ -126,8 +110,21 @@ def teamJazz():
         mainDict[team_str] = sauto, stele, scont, smove, sdefe, sflag, sclimb, saide
     else:
         convertingVariables()
-        #mainDict[team_str] = auto_cells, tele_cells, control_panel, moved, defensive_bool, flags, climb, aided_climb
         mainDict[team_str] = auto_cells, tele_cells, cpVariable, mVariable, dbVariable, fVariable, cVariable, acVariable
+
+def organize():
+    global winning
+    sum = 0
+    winning = 0
+    winArrSum = 0
+    sub_arr = ()
+    sub_arr = (mainDict[team_str])
+    for i in mainDict:
+        sum = sub_arr[1]+sub_arr[2]+sub_arr[3]+sub_arr[4]+sub_arr[5]+sub_arr[6]+sub_arr[7]
+        if sum > winArrSum:
+            winArrSum = sum
+            winning  = team_str
+    print(winning)
 
 
 @app.route("/data")
@@ -137,6 +134,7 @@ def data():
     for match in json.loads(response.text):
         #globals
         global team_tuple
+        global winning
         #cell stuff
         global auto_lower
         global auto_upper
@@ -154,6 +152,7 @@ def data():
         global climb
         global aided_climb
         global moved
+        global sub_arr
         moved = match[move_num]
         aided_climb = match[aided_num]
         climb = match[climb_num]
@@ -172,8 +171,11 @@ def data():
         cell_points = (auto_cells * 2)+tele_cells
         team_arr.append(team_tuple)
         teamJazz()
+        organize()
+    print(winning)
     print (mainDict)
     return json.dumps(team_arr)
+    return json.dumps(winning)
 if __name__ == "__main__":
     app.run()
 
@@ -182,13 +184,5 @@ if __name__ == "__main__":
 
 
 
-
-#TODO what is this and where did it come from?-Leah
-global auto_lower
-global auto_upper
-global auto_inner
-global tele_lower
-global tele_upper
-global tele_inner
-global auto_cells
-global tele_cells
+#TODO after this make it a list for now just print the best
+#TODO accurate counter cause wtf?
