@@ -78,7 +78,7 @@ def convertingVariables():
     elif climb == "Climbed":
         cVariable = 25
     elif climb == "Aided Climb":
-        cvariable = 10
+        cVariable = 10
     #sub 7
     if aided_climb == True:
         acVariable = 40
