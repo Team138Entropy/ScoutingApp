@@ -94,6 +94,7 @@ def teamJazz():
     global team_arr
     global sub_arr
     team_str = str(team_tuple)
+    print(team_tuple)
     if team_str in mainDict:
         sub_arr = ()
         sub_arr = (mainDict[team_str])
@@ -115,7 +116,7 @@ def teamJazz():
 def organize():
     global winning
     sum = 0
-    winning = 0
+    winning = str()
     winArrSum = 0
     sub_arr = ()
     sub_arr = (mainDict[team_str])
@@ -124,7 +125,7 @@ def organize():
         if sum > winArrSum:
             winArrSum = sum
             winning  = team_str
-    print(winning)
+    #print(winning)
 
 
 @app.route("/data")
