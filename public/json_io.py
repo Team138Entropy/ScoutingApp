@@ -94,7 +94,6 @@ def teamJazz():
     global team_arr
     global sub_arr
     team_str = str(team_tuple)
-    print(team_tuple)
     if team_str in mainDict:
         sub_arr = ()
         sub_arr = (mainDict[team_str])
@@ -112,7 +111,6 @@ def teamJazz():
     else:
         convertingVariables()
         mainDict[team_str] = auto_cells, tele_cells, cpVariable, mVariable, dbVariable, fVariable, cVariable, acVariable
-
 def organize():
     global winning
     sum = 0
@@ -122,10 +120,14 @@ def organize():
     sub_arr = (mainDict[team_str])
     for i in mainDict:
         sum = sub_arr[1]+sub_arr[2]+sub_arr[3]+sub_arr[4]+sub_arr[5]+sub_arr[6]+sub_arr[7]
-        if sum > winArrSum:
+        if sum >= winArrSum:
             winArrSum = sum
             winning  = team_str
-    #print(winning)
+            global lastwin
+            lastwin = team_str
+        else:
+            winning  = lastwin
+    print(winning)
 
 
 @app.route("/data")
@@ -173,7 +175,7 @@ def data():
         team_arr.append(team_tuple)
         teamJazz()
         organize()
-    print(winning)
+    #print(winning)
     print (mainDict)
     return json.dumps(team_arr)
     return json.dumps(winning)
