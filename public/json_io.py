@@ -20,6 +20,7 @@ aided_num = "Aided_climb"
 flags_num = "flags"
 climb_num = "final_climb_level"
 mainDict ={}
+subDict={}
 global team_arr
 global sub_arr
 global contT
@@ -85,12 +86,12 @@ def convertingVariables():
     elif aided_climb == False:
         acVariable = 0
 
-
 def teamJazz():
     global team_str
     global contT
     global contF
     global mainDict
+    global subDict
     global team_arr
     global sub_arr
     team_str = str(team_tuple)
@@ -111,6 +112,7 @@ def teamJazz():
     else:
         convertingVariables()
         mainDict[team_str] = auto_cells, tele_cells, cpVariable, mVariable, dbVariable, fVariable, cVariable, acVariable
+    subDict = mainDict
 def organize():
     global winning
     sum = 0
@@ -127,9 +129,7 @@ def organize():
             lastwin = team_str
         else:
             winning  = lastwin
-    print(winning)
-
-
+    print(sum)
 @app.route("/data")
 def data():
     team_arr = []
@@ -175,7 +175,7 @@ def data():
         team_arr.append(team_tuple)
         teamJazz()
         organize()
-    #print(winning)
+    print(winning)
     print (mainDict)
     return json.dumps(team_arr)
     return json.dumps(winning)
