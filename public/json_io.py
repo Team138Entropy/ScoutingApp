@@ -21,6 +21,8 @@ flags_num = "flags"
 climb_num = "final_climb_level"
 mainDict ={}
 subDict={}
+#INITIAL EMPTY LIST
+rankList = []
 global team_arr
 global sub_arr
 global contT
@@ -113,23 +115,35 @@ def teamJazz():
         convertingVariables()
         mainDict[team_str] = auto_cells, tele_cells, cpVariable, mVariable, dbVariable, fVariable, cVariable, acVariable
     subDict = mainDict
+
 def organize():
     global winning
+    global rankList
     sum = 0
     winning = str()
     winArrSum = 0
     sub_arr = ()
     sub_arr = (mainDict[team_str])
+    #THIS WORKS - LEAH
+    #ASSIGNS EVERYTHING TO AN INITIAL PLACE IN THE LIST
     for i in mainDict:
-        sum = sub_arr[1]+sub_arr[2]+sub_arr[3]+sub_arr[4]+sub_arr[5]+sub_arr[6]+sub_arr[7]
-        if sum >= winArrSum:
-            winArrSum = sum
-            winning  = team_str
-            global lastwin
-            lastwin = team_str
+        if team_str in rankList:
+            rankList = rankList
         else:
-            winning  = lastwin
-    print(sum)
+            rankList.append(team_str)
+    #THIS DOES NOT...I THINK... - LEAH
+    #THIS SORTS THE DATA WITHIN THE LIST
+    #CURRENTLY DEFAULTS TO ELSE CUT THAT MAY ACTUALLY BE RIGHT...YOU MAY NEED TO ADD MORE DATA...
+    #TEXT ME IF YOU DONT UNDERSTAND :)
+    for j in mainDict:
+        sumOne = sub_arr[1]+sub_arr[2]+sub_arr[3]+sub_arr[4]+sub_arr[5]+sub_arr[6]+sub_arr[7]
+        for k in mainDict:
+            sumTwo = sub_arr[1]+sub_arr[2]+sub_arr[3]+sub_arr[4]+sub_arr[5]+sub_arr[6]+sub_arr[7]
+            if sumOne > sumTwo:
+                rankList.insert(rankList.index(mainDict[j]), mainDict[i])
+            else:
+                print(mainDict[k])
+
 @app.route("/data")
 def data():
     team_arr = []
@@ -138,6 +152,7 @@ def data():
         #globals
         global team_tuple
         global winning
+        global rankList
         #cell stuff
         global auto_lower
         global auto_upper
@@ -177,15 +192,11 @@ def data():
         organize()
     print(winning)
     print (mainDict)
+    print(rankList)
     return json.dumps(team_arr)
     return json.dumps(winning)
 if __name__ == "__main__":
     app.run()
 
 
-
-
-
-
 #TODO after this make it a list for now just print the best
-#TODO accurate counter cause wtf?
