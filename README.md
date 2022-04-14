@@ -1,6 +1,6 @@
 # Scouting App
 
-This is our scouting app. 
+This is our ***old*** scouting app. 
 
 ## Web stack
 
